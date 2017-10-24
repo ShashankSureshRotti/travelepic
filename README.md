@@ -1,4 +1,4 @@
-#travelepic
+#TravelEpic
 
 (Under Development) A one stop destination to make the perfect itinerary to plan your trips with friends and families.
 
