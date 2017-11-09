@@ -7,7 +7,7 @@ function initMap()
 
     directionsService = new google.maps.DirectionsService;
     directionsDisplay = new google.maps.DirectionsRenderer;
-    pos=null;
+
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -15,7 +15,6 @@ function initMap()
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
             var marker = new google.maps.Marker({
                 icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
                 map: map,
@@ -23,6 +22,9 @@ function initMap()
                 position: pos
             });
             map.setCenter(pos);
+
+            searchPetrolBunks();
+
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -39,7 +41,7 @@ function initMap()
         locationAddress(geocoder, map);
         calculateAndDisplayRoute(directionsService, directionsDisplay,pos);
     });
-    enablePlaceSearchAPI()
+    enablePlaceSearchAPI();
 }
 
 function enablePlaceSearchAPI()
