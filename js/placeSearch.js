@@ -1,64 +1,46 @@
+icons = {
+  parking: {
+    icon: iconBase + 'parking_lot_maps.png',
+	name: "parking"
+  },
+  library: {
+    icon: iconBase + 'library_maps.png',
+	name: "library"
+  },
+  museum: {
+    icon: iconBase + 'museum_maps.png',
+	name: "museum"
+  },
+  police: {
+    icon: iconBase + 'police_maps.png',
+	name: "police"
+  },
+  hindu_temple: {
+    icon: iconBase + 'hindu_temple_maps.png',
+	name: "hindu_temple"
+  },
+  lodging: {
+	icon: iconBase + 'lodging_maps.png',
+	name: "lodging"
+  },
+  shopping: {
+	icon: iconBase + 'shopping_maps.png',
+	name: "shopping"
+  }
+};
+
 function searchPetrolBunks()
 {
 	var latlng = new google.maps.LatLng(pos.lat,pos.lng);
 
-	var request1 = {
+	var request = {
 		location: latlng,
 		radius: '5000',
-		types: ["parking"]
-	};
-	
-    var request2 = {
-		location: latlng,
-		radius: '5000',
-		types: ["library"]
-	};
-	
-	var request3 = {
-		location: latlng,
-		radius: '5000',
-		types: ["museum"]
-	};
-	
-	var request4 = {
-		location: latlng,
-		radius: '5000',
-		types: ["police"]
-	};
-	
-	var request5 = {
-		location: latlng,
-		radius: '5000',
-		types: ["hindu_temple"]
-	};
-	
-	var request6 = {
-		location: latlng,
-		radius: '5000',
-		types: ["lodging"]
-	};
-	
-	var request7 = {
-		location: latlng,
-		radius: '5000',
-		types: ["shopping"]
-	};
-	
-	var request8 = {
-		location: latlng,
-		radius: '5000',
-		types: ["golf"]
+		types: ["parking","library","museum","police","hindu_temple","lodging","shopping"]
 	};
 	
 	service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request1, placeMarkers);
-	service.nearbySearch(request2, placeMarkers);
-	service.nearbySearch(request3, placeMarkers);	
-	service.nearbySearch(request4, placeMarkers);
-        service.nearbySearch(request5, placeMarkers);
-        service.nearbySearch(request6, placeMarkers);	
-	service.nearbySearch(request7, placeMarkers);
-        service.nearbySearch(request8, placeMarkers);	
+	service.nearbySearch(request, placeMarkers);
 }
 
 function placeMarkers(results,status)
@@ -76,40 +58,6 @@ function placeMarkers(results,status)
 
 function createMarkers(place){
 	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-        var icons = {
-          parking: {
-            icon: iconBase + 'parking_lot_maps.png',
-			name: "parking"
-          },
-		  library: {
-            icon: iconBase + 'library_maps.png',
-			name: "library"
-          },
-		  museum: {
-            icon: iconBase + 'museum_maps.png',
-			name: "museum"
-          },
-		  police: {
-            icon: iconBase + 'police_maps.png',
-			name: "police"
-          },
-		  hindu_temple: {
-            icon: iconBase + 'hindu_temple_maps.png',
-			name: "hindu_temple"
-          },
-		  lodging: {
-	    icon: iconBase + 'lodging_maps.png',
-			name: "lodging"
-		  },
-		  shopping: {
-	    icon: iconBase + 'shopping_maps.png',
-			name: "shopping"
-		  },
-		  golf: {
-	    icon: iconBase + 'golf_maps.png',
-			name: "golf"
-		  }
-        };
 
 	var iList=false; 
 	var size = 0, key;
