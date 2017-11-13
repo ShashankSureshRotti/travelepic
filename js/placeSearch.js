@@ -18,9 +18,24 @@ function placeMarkers(results,status)
 	    for (var i = 0; i < results.length; i++) {
 	      var place = results[i];
 	      console.log(results[i]);
-	      //createMarkers(place);
+	      createMarkers(place);
 	    }
 	}
 	else
 		alert(status)
+}
+
+function createMarkers(place){
+	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var icons = {
+          parking: {
+            icon: iconBase + 'parking_lot_maps.png',
+          }
+        };
+		
+	var marker = new google.maps.Marker({
+          map: map,
+	  icon: icons[place.types[0]].icon,
+          position: place.geometry.location
+    });
 }
