@@ -149,5 +149,6 @@ function calculateAndDisplayRoute(directionsService,directionsDisplay,pos)
         }
     );
     //Remove old marker
-    marker.remove(null);
+    if(marker)
+      marker.remove(null);
 }

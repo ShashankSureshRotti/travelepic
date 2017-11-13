@@ -1,3 +1,5 @@
+iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
 icons = {
   parking: {
     icon: iconBase + 'parking_lot_maps.png',
@@ -57,8 +59,6 @@ function placeMarkers(results,status)
 }
 
 function createMarkers(place){
-	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-
 	var iList=false; 
 	var size = 0, key;
     for (key in icons) {
